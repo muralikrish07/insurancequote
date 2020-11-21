@@ -15,6 +15,18 @@ public class Accounts implements Serializable{
 
 
 	public Accounts(String insuredName, String insuredStreet, String insuredCity, String insuredState,
+			Integer insuredZip ) {
+		super();
+		this.insuredName = insuredName;
+		this.insuredStreet = insuredStreet;
+		this.insuredCity = insuredCity;
+		this.insuredState = insuredState;
+		this.insuredZip = insuredZip;
+		
+	}
+
+
+	public Accounts(String insuredName, String insuredStreet, String insuredCity, String insuredState,
 			Integer insuredZip, String lineOfBusiness, Integer accountNumber) {
 		super();
 		this.insuredName = insuredName;
