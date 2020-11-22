@@ -3,7 +3,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import com.cg.exceptions.InsuranceException;
-import oracle.jdbc.OracleDriver;
+
 
 	
 public class JdbcConnect {
@@ -14,7 +14,7 @@ public class JdbcConnect {
 		public static Connection getConnection() throws InsuranceException {
 			
 			try {
-				DriverManager.registerDriver(new OracleDriver());
+			//	DriverManager.registerDriver(new OracleDriver());
 				connection = DriverManager.getConnection(url, "system", "msdhoni1");
 				System.out.println("connected");
 				
