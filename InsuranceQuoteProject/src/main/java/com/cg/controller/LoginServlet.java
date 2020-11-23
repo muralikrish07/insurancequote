@@ -38,8 +38,11 @@ import com.cg.service.InsuredService;
 			
 			if(isFound == true) {
 				System.out.println("user exist");
+				
 			}else {
 				System.out.println("Account not exist create your account");
+				RequestDispatcher rd=request.getRequestDispatcher("UserCreation.jsp");
+				rd.forward(request, response);
 				
 			}
 						

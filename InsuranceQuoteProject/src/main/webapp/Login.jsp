@@ -48,10 +48,10 @@ button {
 </head>  
 <body>  
     <center> <h1> User Login </h1> </center> 
-    <form action="loginServlet" method="post">
+    <form action="LoginServlet" method="post">
         <div class="container"> 
             <label>User ID : </label><br> 
-            <input type="text" placeholder="Enter UserID" name="userid" required><br>
+            <input type="text" placeholder="Enter UserID" name="username" required><br>
             <label>Password : </label><br> 
             <input type="password" placeholder="Enter Password" name="password" required><br>
             <button type="submit">Login</button><br>

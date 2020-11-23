@@ -1,6 +1,38 @@
 package com.cg.model;
 
 public class BusinessSegment {
+@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((busSegId == null) ? 0 : busSegId.hashCode());
+		result = prime * result + ((busSegName == null) ? 0 : busSegName.hashCode());
+		result = prime * result + busSegSeq;
+		return result;
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		BusinessSegment other = (BusinessSegment) obj;
+		if (busSegId == null) {
+			if (other.busSegId != null)
+				return false;
+		} else if (!busSegId.equals(other.busSegId))
+			return false;
+		if (busSegName == null) {
+			if (other.busSegName != null)
+				return false;
+		} else if (!busSegName.equals(other.busSegName))
+			return false;
+		if (busSegSeq != other.busSegSeq)
+			return false;
+		return true;
+	}
 public String busSegId;
 public int busSegSeq;
 public String busSegName;

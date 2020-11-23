@@ -7,7 +7,7 @@ public class test {
 	public static void main(String[] args) throws InsuranceException {
 		
 		AdminDAO ob=new AdminDAO();
-		UserRole obj =new UserRole("krish","msdhoni123","admin");
+		UserRole obj =new UserRole("tom","india12","agent");
 		int a=ob.addUser(obj);
 		System.out.println(a);
 		boolean f=ob.isUserExists("krish");
