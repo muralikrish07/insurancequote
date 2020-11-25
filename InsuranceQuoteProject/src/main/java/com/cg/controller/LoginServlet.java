@@ -10,46 +10,98 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+
+
 import com.cg.exceptions.InsuranceException;
 import com.cg.service.AdminService;
 import com.cg.service.IAdminService;
 import com.cg.service.IInsuredService;
 import com.cg.service.InsuredService;
+import com.cg.service.IInsuredService;
+import com.cg.service.InsuredService;
 
+
+import org.apache.logging.log4j.LogManager;
+
+import org.apache.logging.log4j.Logger;
+import java.util.logging.Logger.*;
 
 @WebServlet("/LoginServlet")
 
 //This Servlet is used to validate the user and redirect them to the respective homepage  
- public class LoginServlet extends HttpServlet{
+public class LoginServlet extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		Logger logger=LogManager.getLogger();
+		//Creating an object to Admin Service class
 		IAdminService adminService = new AdminService();
+		IInsuredService insuredService = new InsuredService();
 		HttpSession session = request.getSession();
+		
+		RequestDispatcher dispatcher=null;
+		
+		String roleCode = "";
 		boolean isFound = false;
+		boolean isUserExists = false;
+		
+		PrintWriter out = response.getWriter();
+		
+		
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 		session.setAttribute("username", username);
-		//System.out.println(username);
+		System.out.println(username);
 		try {
 			
 			
 			isFound = adminService.loginValidation(username,password);
 			
 			if(isFound == true) {
-				System.out.println("user exist");
+			
+				roleCode = adminService.getRoleCode(username, password);
+			    System.out.println("Rolecode is:"+roleCode);
+				if(roleCode != null) {
 				
-			}else {
-				System.out.println("Account not exist create your account");
-				RequestDispatcher rd=request.getRequestDispatcher("UserCreation.jsp");
-				rd.forward(request, response);
-				
-			}
+					if(roleCode.equals("UW")) {
+					
+						dispatcher = request.getRequestDispatcher("adminhome.html");
+						dispatcher.forward(request, response);
+					
+					}else if(roleCode.equals("A")) {
+					    
+						System.out.println(roleCode);
+						dispatcher = request.getRequestDispatcher("agenthome.jsp");
+						dispatcher.forward(request, response);
+					
+					}else if(roleCode.equals("I")){
 						
+						isUserExists = insuredService.accountValidation(username);
+						if (isUserExists) {
+							//if (isCreated == 1) {
+								//out.println("Account Created Successfully!!");
+								dispatcher = request.getRequestDispatcher("InsuredViewPolicy");//insurerhome.html");
+								dispatcher.forward(request, response);
+						}else {
+									//out.println("Account does not exists! Create Account");
+									dispatcher = request.getRequestDispatcher("InsuredAccountCreation.html");
+									dispatcher.include(request, response);
+						}
+											
+					}
+				}
+				
+			} else {
+				
+				logger.info("User not found, Please register");
+				
+				
+/*				System.out.println("User not found");
+*/
+			}
 		}catch (InsuranceException e) {
 		
 			//throw new LoginException("Error occured while validating"+e.getMessage());
-			System.out.println(e.getMessage());
+			logger.error(e.getMessage());
 		
 		}
 	}

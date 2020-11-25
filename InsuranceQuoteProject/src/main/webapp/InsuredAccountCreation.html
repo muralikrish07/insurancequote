@@ -1,0 +1,261 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+
+<style>
+
+.adminHP {
+			width: 38%;
+			height: 95%;
+			background: none;
+			position: absolute;
+			top: 47%;
+			left: 19%;
+			transform: translate(-50%, -50%);
+		}
+		.header {
+			background-color:blue;
+			width:263%;
+			height: 11%;
+			
+		}
+		.header button {
+			float:left;
+			color: white;
+			margin: 2px;
+			background-color: Orange;
+			cursor: pointer;
+			text-align: right;
+			padding: 20px 30px;
+			text-decoration: none;
+			font-size: 120%;
+			position: relative;
+			top:7%;
+			left:0%;
+			border: none;
+		}
+		.header-right {
+			float: right;
+			top:-17%;
+			right : 0%;
+			border: none;
+			position: relative;
+			padding: 20px 0px
+			
+		}
+		.header button:hover {
+			background-color: #ddd;
+			color: black;
+			
+		}
+
+</style>
+<body>
+
+<div class="adminHP">
+		<div class="header">
+			<button href="#default" class="logo">CompanyLogo</button>
+			<div class="header-right">
+				<button class="active" href="homepage2new.html">Logout</button>
+			</div>
+		</div>
+		</div>
+
+<form action="InsuredAccountCreation" method="post">
+		User Name : <input type="text" name="userName"><br>
+		Insured Name:<input type="text" name="insuredName"><br>
+		Insured Street:<input type="text" name="insuredStreet"><br>
+		Insured City:<input	type="text" name="insuredCity"><br>
+		Insured State:<input type="text" name="insuredState">
+		Insured Zip:<input type="text" name="insuredZip"><br>
+		Business Segment / Line of Business:<input type="text" name="busSegName"><br>
+		
+		
+		<input type="submit" value="Create Account">
+	</form>
+</body>
+</html> -->
+
+
+<html>
+
+<head>
+<title>Account Creation</title>
+<style>
+body {
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background: url("pic6.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	font-family: sans-serif;
+}	
+.adminHP {
+			width: 38%;
+			height: 95%;
+			background: none;
+			position: absolute;
+			top: 47%;
+			left: 19%;
+			transform: translate(-50%, -50%);
+		}
+		.header {
+			background-color:green;
+			width:263%;
+			height: 11%;
+			
+		}
+		.header button {
+			float:left;
+			color: black;
+			margin: 2px;
+			background-color: white;
+			cursor: pointer;
+			text-align: right;
+			padding: 20px 30px;
+			text-decoration: none;
+			font-size: 120%;
+			position: relative;
+			top:7%;
+			left:0%;
+			border: none;
+		}
+		.header-right {
+			float: right;
+			top:-17%;
+			right : 0%;
+			border: none;
+			position: relative;
+			padding: 20px 0px
+			
+		}
+		.header button:hover {
+			background-color: blue;
+			color: black;
+			
+		}
+body {
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	<!--background: url("pic8.jpg");-->
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	font-family: sans-serif;
+}	
+
+.accountbox {
+	width: 580px;
+	height: 750px;
+	background: Orange;
+	color: black;
+	top: 52%;
+	left: 50%;
+	position: absolute;
+	transform: translate(-50%, -50%);
+	box-sizing: border-box;
+	padding: 60px 30px;
+	box-shadow: 0 15px 25px rgba(0,0,0,0.3);
+}
+
+h1 {
+	margin: 0;
+	padding: 15 0 20px;
+	text-align: center;
+	font-size: 35px;
+}
+
+.accountbox p {
+	margin: 0;
+	padding: 0;
+	font-weight: bold;
+}
+
+.accountbox input[type = "text"] {
+	border: none;
+	width: 100%;
+	border-bottom: 1px solid black;
+	background: transparent;
+	outline: none;
+	height: 22px;
+	color: black;
+    font-size: 16px;
+	padding: 0px;
+	margin: 10px 10 10px 0;
+}
+
+.accountbox select {
+	width: 100%;
+	height: 30px;
+	background: transparent;
+	border: 1px solid black;
+	cursor: pointer;
+}
+
+.accountbox input[type = "submit"] {
+	border: none;
+	outline: none;
+	height: 30px;
+	width: 50%;
+	background: blue;
+	color: #fff;
+	font-size: 18px;
+	border-radius: 15px;
+}
+
+.accountbox input[type = "submit"]:hover {
+	cursor: pointer;
+	background: #708090;
+	color: white;
+}
+
+</style>
+</head>
+
+<body>
+
+
+<div class="adminHP">
+		<div class="header">
+			<button href="#default" class="logo">CompanyLogo</button>
+			<div class="header-right">
+				<button class="active" href="homepage2new.html">Logout</button>
+			</div>
+		</div>
+		</div>
+
+	<div class = "accountbox">
+	<h1>Account Creation</h1>
+	<br>
+	<form action = "AccountCreationServlet" method = "post">
+		<p>User Name</p>
+		<input type = "text" name = "userName" pattern = "[a-zA-Z][a-zA-Z0-9]{8,20}" title = "The insured name should contain letters and numbers with atleast 8 characters" required>
+		<p>Insured Name</p>
+		<input type = "text" name = "insuredName" pattern = "[a-zA-Z][a-zA-Z0-9]{8,20}" title = "The insured name should contain letters and numbers with atleast 8 characters" required>
+		<p>Insured Street</p>
+		<input type = "text" name = "insuredStreet" pattern = "[a-zA-Z]{6,20}" title = "The street name should contain only letters with atleast 6 characters" required>
+		<p>Insured City</p>
+		<input type = "text" name = "insuredCity" pattern = "[a-zA-Z]{8,20}" title = "The city name should contain only letters with atleast 8 characters" required>
+		<p>Insured State</p>
+		<input type = "text" name = "insuredState" pattern = "[a-zA-Z]{8,20}" title = "The state name should contain only letters with atleast 8 characters" required>
+		<p>Insured zip</p>
+		<input type = "text" name = "insuredZip" required><br><br>
+		<p>Business Segment</p>
+		<br><select name = "busSegName">
+			<option value = "Business Auto">Business Auto</option>
+			<option value = "Restaurant">Restaurant</option>
+			<option value = "Apartment">Apartment</option>
+			<option value = "General Merchant">General Merchant</option>
+			<!-- <option value = "life">Life</option> -->
+		</select><br><br><br><br>
+		<center><input type = "submit" name = "submit" value = "Create Account"></center>
+	</form>
+</body>
+
+</html>

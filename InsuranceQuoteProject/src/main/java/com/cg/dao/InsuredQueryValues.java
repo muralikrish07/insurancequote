@@ -13,7 +13,7 @@ public interface InsuredQueryValues {
 	
 	String GET_SELECTED_ANSWERS = "select answer from policydetails where policynumber = ?";
     
-	String ACCOUNT_CREATION = "insert into accounts values(account_number.nextval,?,?,?,?,?,?,?)";
+	String ACCOUNT_CREATION = "insert into accounts values(?,?,?,?,?,?,?,?)";
 	
 	String VALIDATE_ACCOUNT_QUERY ="select * from accounts where username = ?";
 
